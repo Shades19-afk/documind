@@ -1,0 +1,354 @@
+{
+  "documents": {
+    "fallback-2026-05-25T21:02:22.085Z-34cnaydu": {
+      "id": "fallback-2026-05-25T21:02:22.085Z-34cnaydu",
+      "userId": "280cab27-c66a-4bab-8cf5-9ea1ae22e6c4",
+      "filename": "tmp-upload-test.pdf",
+      "mimeType": "application/pdf",
+      "sizeBytes": 594,
+      "status": "processing",
+      "pageCount": 0,
+      "extractedText": null,
+      "errorMessage": null,
+      "generationStatus": "idle",
+      "generationErrorMessage": null,
+      "createdAt": "2026-05-25T21:02:22.085Z",
+      "updatedAt": "2026-05-25T21:02:22.085Z",
+      "attempts": 0,
+      "studyPackage": null
+    },
+    "fallback-2026-05-25T21:02:22.106Z-m0wjq0o4": {
+      "id": "fallback-2026-05-25T21:02:22.106Z-m0wjq0o4",
+      "userId": "280cab27-c66a-4bab-8cf5-9ea1ae22e6c4",
+      "filename": "tmp-upload-test.pdf",
+      "mimeType": "application/pdf",
+      "sizeBytes": 594,
+      "status": "processing",
+      "pageCount": 0,
+      "extractedText": null,
+      "errorMessage": null,
+      "generationStatus": "idle",
+      "generationErrorMessage": null,
+      "createdAt": "2026-05-25T21:02:22.106Z",
+      "updatedAt": "2026-05-25T21:02:22.106Z",
+      "attempts": 0,
+      "studyPackage": null
+    },
+    "fallback-2026-05-25T21:17:48.948Z-9xyzn4vt": {
+      "id": "fallback-2026-05-25T21:17:48.948Z-9xyzn4vt",
+      "userId": "5cdc4e05-4773-47b1-ad54-f95709897116",
+      "filename": "Notification_Programme_UG_PG_Ph.D._End_Semester_Examination_31102025.pdf",
+      "mimeType": "application/pdf",
+      "sizeBytes": 650731,
+      "status": "processing",
+      "pageCount": 0,
+      "extractedText": null,
+      "errorMessage": null,
+      "generationStatus": "idle",
+      "generationErrorMessage": null,
+      "createdAt": "2026-05-25T21:17:48.948Z",
+      "updatedAt": "2026-05-25T21:17:48.948Z",
+      "attempts": 0,
+      "studyPackage": null
+    },
+    "fallback-2026-05-25T21:25:51.331Z-br8d2aq0": {
+      "id": "fallback-2026-05-25T21:25:51.331Z-br8d2aq0",
+      "userId": "280cab27-c66a-4bab-8cf5-9ea1ae22e6c4",
+      "filename": "tmp-upload-test.pdf",
+      "mimeType": "application/pdf",
+      "sizeBytes": 594,
+      "status": "processing",
+      "pageCount": 0,
+      "extractedText": null,
+      "errorMessage": null,
+      "generationStatus": "idle",
+      "generationErrorMessage": null,
+      "createdAt": "2026-05-25T21:25:51.331Z",
+      "updatedAt": "2026-05-25T21:25:51.331Z",
+      "attempts": 0,
+      "studyPackage": null
+    },
+    "fallback-2026-05-25T21:28:50.660Z-4benzdvo": {
+      "id": "fallback-2026-05-25T21:28:50.660Z-4benzdvo",
+      "userId": "280cab27-c66a-4bab-8cf5-9ea1ae22e6c4",
+      "filename": "tmp-upload-test.pdf",
+      "mimeType": "application/pdf",
+      "sizeBytes": 594,
+      "status": "processing",
+      "pageCount": 0,
+      "extractedText": null,
+      "errorMessage": null,
+      "generationStatus": "idle",
+      "generationErrorMessage": null,
+      "createdAt": "2026-05-25T21:28:50.660Z",
+      "updatedAt": "2026-05-25T21:28:50.660Z",
+      "attempts": 0,
+      "studyPackage": null
+    },
+    "fallback-2026-05-25T21:29:51.825Z-x8gcrjgj": {
+      "id": "fallback-2026-05-25T21:29:51.825Z-x8gcrjgj",
+      "userId": "280cab27-c66a-4bab-8cf5-9ea1ae22e6c4",
+      "filename": "tmp-upload-test.pdf",
+      "mimeType": "application/pdf",
+      "sizeBytes": 594,
+      "status": "processing",
+      "pageCount": 0,
+      "extractedText": null,
+      "errorMessage": null,
+      "generationStatus": "idle",
+      "generationErrorMessage": null,
+      "createdAt": "2026-05-25T21:29:51.825Z",
+      "updatedAt": "2026-05-25T21:29:51.825Z",
+      "attempts": 0,
+      "studyPackage": null
+    },
+    "fallback-2026-05-25T21:30:17.088Z-xy15hszj": {
+      "id": "fallback-2026-05-25T21:30:17.088Z-xy15hszj",
+      "userId": "280cab27-c66a-4bab-8cf5-9ea1ae22e6c4",
+      "filename": "tmp-upload-test.pdf",
+      "mimeType": "application/pdf",
+      "sizeBytes": 594,
+      "status": "processing",
+      "pageCount": 0,
+      "extractedText": null,
+      "errorMessage": null,
+      "generationStatus": "idle",
+      "generationErrorMessage": null,
+      "createdAt": "2026-05-25T21:30:17.088Z",
+      "updatedAt": "2026-05-25T21:30:17.088Z",
+      "attempts": 0,
+      "studyPackage": null
+    },
+    "fallback-2026-05-25T21:32:24.111Z-gmym0k14": {
+      "id": "fallback-2026-05-25T21:32:24.111Z-gmym0k14",
+      "userId": "280cab27-c66a-4bab-8cf5-9ea1ae22e6c4",
+      "filename": "tmp-upload-test.pdf",
+      "mimeType": "application/pdf",
+      "sizeBytes": 594,
+      "status": "processing",
+      "pageCount": 0,
+      "extractedText": null,
+      "errorMessage": null,
+      "generationStatus": "idle",
+      "generationErrorMessage": null,
+      "createdAt": "2026-05-25T21:32:24.111Z",
+      "updatedAt": "2026-05-25T21:32:24.111Z",
+      "attempts": 0,
+      "studyPackage": null
+    },
+    "fallback-2026-05-25T21:34:06.987Z-5ib04rvk": {
+      "id": "fallback-2026-05-25T21:34:06.987Z-5ib04rvk",
+      "userId": "280cab27-c66a-4bab-8cf5-9ea1ae22e6c4",
+      "filename": "tmp-upload-test.pdf",
+      "mimeType": "application/pdf",
+      "sizeBytes": 594,
+      "status": "processing",
+      "pageCount": 0,
+      "extractedText": null,
+      "errorMessage": null,
+      "generationStatus": "idle",
+      "generationErrorMessage": null,
+      "createdAt": "2026-05-25T21:34:06.987Z",
+      "updatedAt": "2026-05-25T21:34:06.987Z",
+      "attempts": 0,
+      "studyPackage": null
+    },
+    "fallback-2026-05-25T21:37:00.441Z-ez4zo9hg": {
+      "id": "fallback-2026-05-25T21:37:00.441Z-ez4zo9hg",
+      "userId": "5cdc4e05-4773-47b1-ad54-f95709897116",
+      "filename": "Notification_Revised _Programme_Supplementary_Examinations_Promoted_Non_Promoted_UG_PG_Ph.D._Students_24072025.pdf",
+      "mimeType": "application/pdf",
+      "sizeBytes": 891984,
+      "status": "processing",
+      "pageCount": 0,
+      "extractedText": null,
+      "errorMessage": null,
+      "generationStatus": "idle",
+      "generationErrorMessage": null,
+      "createdAt": "2026-05-25T21:37:00.441Z",
+      "updatedAt": "2026-05-25T21:37:00.441Z",
+      "attempts": 0,
+      "studyPackage": null
+    },
+    "fallback-2026-05-25T21:51:37.638Z-t4b0yp4h": {
+      "id": "fallback-2026-05-25T21:51:37.638Z-t4b0yp4h",
+      "userId": "5cdc4e05-4773-47b1-ad54-f95709897116",
+      "filename": "Unnamed1.pdf",
+      "mimeType": "application/pdf",
+      "sizeBytes": 27525,
+      "status": "processing",
+      "pageCount": 0,
+      "extractedText": null,
+      "errorMessage": null,
+      "generationStatus": "idle",
+      "generationErrorMessage": null,
+      "createdAt": "2026-05-25T21:51:37.638Z",
+      "updatedAt": "2026-05-25T21:51:37.638Z",
+      "attempts": 0,
+      "studyPackage": null
+    },
+    "fallback-2026-05-25T22:05:38.354Z-w3u0tafs": {
+      "id": "fallback-2026-05-25T22:05:38.354Z-w3u0tafs",
+      "userId": "280cab27-c66a-4bab-8cf5-9ea1ae22e6c4",
+      "filename": "tmp-upload-test.pdf",
+      "mimeType": "application/pdf",
+      "sizeBytes": 594,
+      "status": "processing",
+      "pageCount": 0,
+      "extractedText": null,
+      "errorMessage": null,
+      "generationStatus": "idle",
+      "generationErrorMessage": null,
+      "createdAt": "2026-05-25T22:05:38.354Z",
+      "updatedAt": "2026-05-25T22:05:38.354Z",
+      "attempts": 0,
+      "studyPackage": null
+    },
+    "fallback-2026-05-25T23:44:15.364Z-020oje9s": {
+      "id": "fallback-2026-05-25T23:44:15.364Z-020oje9s",
+      "userId": "5233c0b8-b2ef-44e9-86b0-946a9e696865",
+      "filename": "tmp-upload-test.pdf",
+      "mimeType": "application/pdf",
+      "sizeBytes": 594,
+      "status": "failed",
+      "pageCount": 1,
+      "extractedText": "DocuMind test upload\n\n-- 1 of 1 --\n\n",
+      "errorMessage": "Quota exhausted, retry later",
+      "generationStatus": "quota_exceeded",
+      "generationErrorMessage": "Quota exhausted, retry later",
+      "createdAt": "2026-05-25T23:44:15.364Z",
+      "updatedAt": "2026-05-25T23:44:16.504Z",
+      "attempts": 2,
+      "studyPackage": {
+        "summary": "DocuMind test upload -- 1 of 1 --",
+        "detailedSummary": "DocuMind test upload -- 1 of 1 --",
+        "overview": "DocuMind test upload -- 1 of 1 --",
+        "keyPoints": [
+          "DocuMind test upload -- 1 of 1 --"
+        ],
+        "keyTakeaways": [
+          "DocuMind test upload -- 1 of 1 --"
+        ],
+        "sectionSummaries": [
+          {
+            "heading": "Overview",
+            "summary": "DocuMind test upload -- 1 of 1 --"
+          },
+          {
+            "heading": "Core ideas",
+            "summary": "DocuMind test upload -- 1 of 1 --"
+          }
+        ],
+        "importantConcepts": [
+          "DocuMind test upload -- 1 of 1 --"
+        ],
+        "studyNotes": [
+          "Start with the concise summary to capture the main idea.",
+          "Use the key points to reinforce the most important takeaways.",
+          "Review the flashcards and important concepts before the next study session."
+        ],
+        "flashcards": [
+          {
+            "front": "What is the main purpose of this document?",
+            "back": "DocuMind test upload -- 1 of 1 --"
+          }
+        ],
+        "importantTopics": [
+          "DocuMind test upload -- 1 of 1 --"
+        ],
+        "generatedAt": "2026-05-25T23:44:16.504Z",
+        "metadata": {
+          "source": "fallback",
+          "failureState": "quota_exceeded",
+          "errorMessage": "Quota exhausted, retry later"
+        }
+      }
+    },
+    "fallback-2026-05-26T20:59:09.840Z-jrqc5eli": {
+      "id": "fallback-2026-05-26T20:59:09.840Z-jrqc5eli",
+      "userId": "5cdc4e05-4773-47b1-ad54-f95709897116",
+      "filename": "pg1.pdf",
+      "mimeType": "application/pdf",
+      "sizeBytes": 79806,
+      "status": "failed",
+      "pageCount": 1,
+      "extractedText": "SCINTILLATIONS 2026\nOrganised by :\nEntrepreneurship Development Cell ,IIEST Shibpur\nProfessor In Charge: Dr. Snehanshu Pal\nSecretary: Shreyansh Srivastava , CST, 4th Year\n\n-- 1 of 1 --\n\n",
+      "errorMessage": "Quota exhausted, retry later",
+      "generationStatus": "quota_exceeded",
+      "generationErrorMessage": "Quota exhausted, retry later",
+      "createdAt": "2026-05-26T20:59:09.840Z",
+      "updatedAt": "2026-05-26T21:03:34.370Z",
+      "attempts": 4,
+      "studyPackage": {
+        "summary": "SCINTILLATIONS 2026 Organised by : Entrepreneurship Development Cell ,IIEST Shibpur Professor In Charge: Dr. Snehanshu Pal Secretary: Shreyansh Srivastava , CST, 4th Year -- 1 of 1 --",
+        "detailedSummary": "SCINTILLATIONS 2026 Organised by : Entrepreneurship Development Cell ,IIEST Shibpur Professor In Charge: Dr. Snehanshu Pal Secretary: Shreyansh Srivastava , CST, 4th Year -- 1 of 1 --",
+        "overview": "SCINTILLATIONS 2026 Organised by : Entrepreneurship Development Cell ,IIEST Shibpur Professor In Charge: Dr. Snehanshu Pal Secretary: Shreyansh Srivastava , CST, 4th Year -- 1 of 1 --",
+        "keyPoints": [
+          "SCINTILLATIONS 2026 Organised by : Entrepreneurship Development Cell ,IIEST Shibpur Professor In Charge: Dr",
+          "Snehanshu Pal Secretary: Shreyansh Srivastava , CST, 4th Year -- 1 of 1 --"
+        ],
+        "keyTakeaways": [
+          "SCINTILLATIONS 2026 Organised by : Entrepreneurship Development Cell ,IIEST Shibpur Professor In Charge: Dr",
+          "Snehanshu Pal Secretary: Shreyansh Srivastava , CST, 4th Year -- 1 of 1 --"
+        ],
+        "sectionSummaries": [
+          {
+            "heading": "Overview",
+            "summary": "SCINTILLATIONS 2026 Organised by : Entrepreneurship Development Cell ,IIEST Shibpur Professor In Charge: Dr. Snehanshu Pal Secretary: Shreyansh Srivastava , CST, 4th Year -- 1 of 1 --"
+          },
+          {
+            "heading": "Core ideas",
+            "summary": "SCINTILLATIONS 2026 Organised by : Entrepreneurship Development Cell ,IIEST Shibpur Professor In Charge: Dr"
+          }
+        ],
+        "importantConcepts": [
+          "SCINTILLATIONS 2026 Organised by : Entrepreneurship Development Cell ,IIEST Shibpur Professor In Charge: Dr",
+          "Snehanshu Pal Secretary: Shreyansh Srivastava , CST, 4th Year -- 1 of 1 --"
+        ],
+        "studyNotes": [
+          "Start with the concise summary to capture the main idea.",
+          "Use the key points to reinforce the most important takeaways.",
+          "Review the flashcards and important concepts before the next study session."
+        ],
+        "flashcards": [
+          {
+            "front": "What is the main purpose of this document?",
+            "back": "SCINTILLATIONS 2026 Organised by : Entrepreneurship Development Cell ,IIEST Shibpur Professor In Charge: Dr. Snehanshu Pal Secretary: Shreyansh Srivastava , CST, 4th Year -- 1 of 1 --"
+          }
+        ],
+        "importantTopics": [
+          "SCINTILLATIONS 2026 Organised by : Entrepreneurship Development Cell ,IIEST Shibpur Professor In Charge: Dr",
+          "Snehanshu Pal Secretary: Shreyansh Srivastava , CST, 4th Year -- 1 of 1 --"
+        ],
+        "generatedAt": "2026-05-26T21:03:34.369Z",
+        "metadata": {
+          "source": "fallback",
+          "failureState": "quota_exceeded",
+          "errorMessage": "Quota exhausted, retry later"
+        }
+      }
+    }
+  },
+  "userIds": {
+    "280cab27-c66a-4bab-8cf5-9ea1ae22e6c4": [
+      "fallback-2026-05-25T21:02:22.085Z-34cnaydu",
+      "fallback-2026-05-25T21:02:22.106Z-m0wjq0o4",
+      "fallback-2026-05-25T21:25:51.331Z-br8d2aq0",
+      "fallback-2026-05-25T21:28:50.660Z-4benzdvo",
+      "fallback-2026-05-25T21:29:51.825Z-x8gcrjgj",
+      "fallback-2026-05-25T21:30:17.088Z-xy15hszj",
+      "fallback-2026-05-25T21:32:24.111Z-gmym0k14",
+      "fallback-2026-05-25T21:34:06.987Z-5ib04rvk",
+      "fallback-2026-05-25T22:05:38.354Z-w3u0tafs"
+    ],
+    "5cdc4e05-4773-47b1-ad54-f95709897116": [
+      "fallback-2026-05-25T21:17:48.948Z-9xyzn4vt",
+      "fallback-2026-05-25T21:37:00.441Z-ez4zo9hg",
+      "fallback-2026-05-25T21:51:37.638Z-t4b0yp4h",
+      "fallback-2026-05-26T20:59:09.840Z-jrqc5eli"
+    ],
+    "5233c0b8-b2ef-44e9-86b0-946a9e696865": [
+      "fallback-2026-05-25T23:44:15.364Z-020oje9s"
+    ]
+  }
+}
