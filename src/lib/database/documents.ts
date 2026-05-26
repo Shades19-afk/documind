@@ -848,8 +848,8 @@ export async function retryDocumentForUser(userId: string, documentId: string) {
     
     console.log("[DocuMind retry] retry completed", {
       documentId,
-      finalStatus: status.status,
-      finalGenerationStatus: status.errorMessage,
+      finalStatus: status?.status ?? "unknown",
+finalGenerationStatus: status?.errorMessage ?? null
     });
 
     return status;
@@ -900,7 +900,7 @@ export async function retryDocumentForUser(userId: string, documentId: string) {
     
     console.log("[DocuMind retry] retry completed (fallback)", {
       documentId,
-      finalStatus: status.status,
+      ffinalStatus: status?.status ?? "unknown",
     });
 
     return status;
