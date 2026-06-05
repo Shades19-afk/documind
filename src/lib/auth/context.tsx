@@ -56,6 +56,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       user,
       loading,
       signIn: async (email, password) => {
+        // Log client state for debugging
+        // eslint-disable-next-line no-console
+        console.log('[auth-context] signIn called. Client exists:', !!client);
+        
         if (!client) {
           // Debug log: client missing at runtime
           try {
@@ -69,16 +73,25 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
               !!process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY,
             );
           } catch (e) {}
-          throw new Error("Supabase is not configured.");
+          throw new Error(
+            `[auth] Supabase client missing at runtime. NEXT_PUBLIC_SUPABASE_URL=${!!process.env.NEXT_PUBLIC_SUPABASE_URL}, NEXT_PUBLIC_SUPABASE_ANON_KEY=${!!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY}, NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=${!!process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY}`,
+          );
         }
 
-        const { error } = await client.auth.signInWithPassword({ email, password });
+        const response = await client.auth.signInWithPassword({ email, password });
+        
+        // eslint-disable-next-line no-console
+        console.log('[auth-context] signIn response:', { error: response.error?.message, user: response.data?.user?.id });
 
-        if (error) {
-          throw error;
+        if (response.error) {
+          throw response.error;
         }
       },
       signUp: async (email, password, displayName) => {
+        // Log client state for debugging
+        // eslint-disable-next-line no-console
+        console.log('[auth-context] signUp called. Client exists:', !!client);
+        
         if (!client) {
           // Debug log: client missing at runtime
           try {
@@ -92,10 +105,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
               !!process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY,
             );
           } catch (e) {}
-          throw new Error("Supabase is not configured.");
+          throw new Error(
+            `[auth] Supabase client missing at runtime. NEXT_PUBLIC_SUPABASE_URL=${!!process.env.NEXT_PUBLIC_SUPABASE_URL}, NEXT_PUBLIC_SUPABASE_ANON_KEY=${!!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY}, NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=${!!process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY}`,
+          );
         }
 
-        const { error } = await client.auth.signUp({
+        const response = await client.auth.signUp({
           email,
           password,
           options: {
@@ -105,8 +120,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           },
         });
 
-        if (error) {
-          throw error;
+        // eslint-disable-next-line no-console
+        console.log('[auth-context] signUp response:', { error: response.error?.message, user: response.data?.user?.id });
+        
+        if (response.error) {
+          throw response.error;
         }
       },
       signOut: async () => {

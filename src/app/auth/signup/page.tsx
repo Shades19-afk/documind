@@ -40,16 +40,31 @@ export default function SignupPage() {
             try {
               await signUp(email, password, displayName);
               router.replace("/dashboard");
-            } catch (error) {
+            } catch (error: any) {
                 try {
+                  // preserve raw error for debugging
                   // eslint-disable-next-line no-console
-                  console.error('[auth-signup] caught error during signUp:', error);
+                  console.error('[auth-signup] REAL AUTH ERROR OBJECT:', error);
                   // eslint-disable-next-line no-console
-                  console.error(error instanceof Error ? error.stack : error);
+                  console.error('[auth-signup] error type:', error?.constructor?.name);
+                  // eslint-disable-next-line no-console
+                  console.error('[auth-signup] error message:', error instanceof Error ? error.message : String(error));
+                  if (error instanceof Error) {
+                    // eslint-disable-next-line no-console
+                    console.error('[auth-signup] error stack:', error.stack);
+                  }
                 } catch (e) {}
 
-                const message = error instanceof Error ? error.message : "Unable to create account.";
-                setErrorMessage(message);
+                // Friendly mapping for known Supabase rate-limit error
+                const code = error?.code ?? error?.error?.code ?? null;
+                const status = error?.status ?? error?.statusCode ?? null;
+
+                if (code === 'over_email_send_rate_limit' || status === 429 || /rate limit/i.test(String(error?.message ?? '')) ) {
+                  setErrorMessage('Too many signup attempts. Please wait a few minutes before trying again.');
+                } else {
+                  const message = error instanceof Error ? error.message : 'Unable to create account.';
+                  setErrorMessage(message);
+                }
             } finally {
               setIsSubmitting(false);
             }
