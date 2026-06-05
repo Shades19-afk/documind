@@ -41,8 +41,15 @@ export default function SignupPage() {
               await signUp(email, password, displayName);
               router.replace("/dashboard");
             } catch (error) {
-              const message = error instanceof Error ? error.message : "Unable to create account.";
-              setErrorMessage(message);
+                try {
+                  // eslint-disable-next-line no-console
+                  console.error('[auth-signup] caught error during signUp:', error);
+                  // eslint-disable-next-line no-console
+                  console.error(error instanceof Error ? error.stack : error);
+                } catch (e) {}
+
+                const message = error instanceof Error ? error.message : "Unable to create account.";
+                setErrorMessage(message);
             } finally {
               setIsSubmitting(false);
             }
