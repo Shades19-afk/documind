@@ -73,7 +73,7 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
           {toasts.map((toast) => (
             <div
               key={toast.id}
-              className={`pointer-events-auto flex items-start gap-3 rounded-2xl border px-4 py-3 shadow-2xl backdrop-blur ${variantStyles(toast.variant)}`}
+              className={`pointer-events-auto flex items-start gap-3 rounded-2xl border border-white/20 px-4 py-3 shadow-2xl backdrop-blur ${variantStyles(toast.variant)}`}
             >
               <div className="mt-0.5">{variantIcon(toast.variant)}</div>
               <div className="flex-1">

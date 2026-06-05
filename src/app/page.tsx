@@ -10,7 +10,7 @@ import {
   Sparkles,
   UploadCloud,
 } from "lucide-react";
-import { motion } from "framer-motion";
+// simplified hero: intentionally generic gradient headline
 
 const featureCards = [
   {
@@ -31,17 +31,33 @@ const featureCards = [
     description:
       "See upload status, review progress, and document activity from one command center.",
   },
+  // duplicated generic features to create a repetitive template-like grid
+  {
+    icon: UploadCloud,
+    title: "Flexible imports",
+    description: "CSV, PDF, and scanned images — bring any document into your workspace.",
+  },
+  {
+    icon: Sparkles,
+    title: "Instant summaries",
+    description: "Short summaries, highlights, and exportable notes generated automatically.",
+  },
+  {
+    icon: BarChart3,
+    title: "Workspace analytics",
+    description: "Activity logs, usage metrics, and quick snapshots of your document flows.",
+  },
 ];
 
 const workflowSteps = [
-  "Upload a PDF or document into your AI workspace",
-  "Let DocuMind extract and organize the content",
-  "Search, summarize, and collaborate with confidence",
+  "Upload documents",
+  "AI processes and indexes content",
+  "Receive automated summaries and highlights",
 ];
 
 export default function DocuMindLanding() {
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.25),transparent_30%),linear-gradient(180deg,#09090b_0%,#111827_100%)] text-gray-100">
+    <div className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.25),transparent_30%),linear-gradient(180deg,#09090b_0%,#111827_100%)] text-slate-200">
       <header className="border-b border-white/10">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <div className="flex items-center gap-3">
@@ -53,15 +69,13 @@ export default function DocuMindLanding() {
             </div>
           </div>
           <nav className="hidden items-center gap-6 text-sm text-slate-200 md:flex">
-            <a className="transition hover:text-white" href="#features">
-              Features
-            </a>
-            <a className="transition hover:text-white" href="#workflow">
-              Workflow
-            </a>
-            <a className="transition hover:text-white" href="#security">
-              Security
-            </a>
+            <a className="transition hover:text-white" href="#features">Features</a>
+            <a className="transition hover:text-white" href="#workflow">Workflow</a>
+            <a className="transition hover:text-white" href="#security">Security</a>
+            <a className="transition hover:text-white" href="/pricing">Pricing</a>
+            <a className="transition hover:text-white" href="/blog">Blog</a>
+            <a className="transition hover:text-white" href="/testimonials">Testimonials</a>
+            <a className="transition hover:text-white" href="/faq">FAQ</a>
           </nav>
           <div className="flex items-center gap-3">
             <Button asChild variant="ghost" className="text-slate-100 hover:text-white">
@@ -75,88 +89,42 @@ export default function DocuMindLanding() {
       </header>
 
       <main className="flex-1">
-        <section className="relative overflow-hidden">
-          <div className="mx-auto grid max-w-6xl gap-10 px-6 pb-16 pt-12 lg:grid-cols-[1.1fr,0.9fr] lg:items-center lg:pb-20 lg:pt-16">
-            <motion.div
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="inline-flex items-center gap-2 rounded-full border border-indigo-300/30 bg-indigo-500/10 px-3 py-1 text-sm text-indigo-100">
-                <Sparkles className="h-4 w-4" />
-                AI document intelligence for modern teams
-              </div>
-              <h1 className="mt-6 text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
-                Turn scattered documents into clear answers.
-              </h1>
-              <p className="mt-5 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg">
-                DocuMind brings uploads, summaries, search, and secure review into one elegant workspace so your team can move faster and stay aligned.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-4">
-                <Button asChild size="lg" className="bg-indigo-500 hover:bg-indigo-400">
-                  <a href="/dashboard">
-                    Open dashboard
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </a>
-                </Button>
-                <Button
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="border-white/15 bg-white/5 text-white hover:bg-white/10"
-                >
-                  <a href="/documents">Browse library</a>
-                </Button>
-              </div>
-              <div className="mt-8 flex flex-wrap gap-4 text-sm text-slate-200">
-                <span className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-emerald-300" />
-                  No credit card required
-                </span>
-                <span className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-emerald-300" />
-                  Secure document handling
-                </span>
-                <span className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-emerald-300" />
-                  Built for fast decision-making
-                </span>
-              </div>
-            </motion.div>
+        <section className="min-h-[72vh] flex items-center justify-center bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.25),transparent),linear-gradient(180deg,#09090b,#111827)] text-center">
+          <div className="mx-auto max-w-3xl px-6 py-20">
+            <div className="inline-flex items-center gap-2 rounded-full bg-indigo-500/10 px-3 py-1 text-sm text-indigo-100">
+              <Sparkles className="h-4 w-4" />
+              AI document intelligence
+            </div>
+            <h1 className="mt-6 text-6xl font-semibold tracking-tight text-slate-200">
+              AI-powered document workflows for teams
+            </h1>
+            <p className="mt-5 text-lg text-slate-300">Work with documents in one place, faster and smoother.</p>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+              <Button asChild size="lg" className="bg-indigo-500 hover:bg-indigo-400">
+                <a href="/dashboard">Start for free</a>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="border-white/15 bg-white/5 text-white hover:bg-white/10">
+                <a href="/documents">Browse library</a>
+              </Button>
+            </div>
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-3 text-sm text-slate-300">
+              <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">AI-ready</span>
+              <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">Document first</span>
+              <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">No setup needed</span>
+            </div>
+            <div className="mx-auto mt-12 max-w-4xl rounded-[36px] border border-white/10 bg-slate-950/80 p-6 text-left">
+              <div className="h-64 rounded-3xl bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900/70" />
+              <p className="mt-4 text-sm text-slate-300">Illustrative workflow preview. Not a real screenshot.</p>
+            </div>
+          </div>
+        </section>
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.98 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-              className="rounded-[28px] border border-white/10 bg-white/5 p-5 backdrop-blur"
-            >
-              <div className="rounded-[22px] border border-indigo-300/20 bg-slate-950/70 p-5">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-sm text-slate-300">Live workspace</p>
-                    <p className="mt-2 text-2xl font-semibold">14 documents ready</p>
-                  </div>
-                  <div className="rounded-full bg-emerald-400/15 px-3 py-1 text-sm text-emerald-200">
-                    AI-ready
-                  </div>
-                </div>
-                <div className="mt-6 space-y-3">
-                  {[
-                    { label: "Summaries generated", value: "32" },
-                    { label: "Uploads processed", value: "8" },
-                    { label: "Questions answered", value: "76" },
-                  ].map((item) => (
-                    <div
-                      key={item.label}
-                      className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.02] px-4 py-3"
-                    >
-                      <span className="text-sm text-slate-200">{item.label}</span>
-                      <span className="font-semibold text-white">{item.value}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
+        <section className="mx-auto max-w-6xl px-6 py-6 text-center">
+          <div className="mx-auto max-w-4xl rounded-[36px] border border-white/10 bg-white/5 p-10">
+            <div className="h-52 rounded-3xl bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900/70" />
+            <p className="mt-5 text-sm text-slate-300">
+              A visual preview of a document workspace — illustrative only.
+            </p>
           </div>
         </section>
 
@@ -170,17 +138,20 @@ export default function DocuMindLanding() {
               Replace scattered tools and repetitive review cycles with one modern workspace built for clarity, security, and speed.
             </p>
           </div>
-          <div className="mt-8 grid gap-4 md:grid-cols-3">
+          <div className="mt-8 grid gap-4 md:grid-cols-3 justify-items-center">
             {featureCards.map((feature) => {
               const Icon = feature.icon;
               return (
-                <Card key={feature.title} className="border-white/10 bg-white/5">
+                <Card key={feature.title} className="border-white/10 bg-white/5 w-full max-w-sm text-center">
                   <CardContent className="p-6">
-                    <div className="rounded-2xl bg-indigo-500/10 p-3 text-indigo-100">
+                    <div className="inline-flex items-center justify-center rounded-full bg-indigo-500/10 p-3 text-indigo-100">
                       <Icon className="h-6 w-6" />
                     </div>
                     <h3 className="mt-4 text-lg font-semibold">{feature.title}</h3>
                     <p className="mt-2 text-sm leading-6 text-slate-300">{feature.description}</p>
+                    <div className="mt-4 inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-200">
+                      Core feature
+                    </div>
                   </CardContent>
                 </Card>
               );
@@ -188,8 +159,8 @@ export default function DocuMindLanding() {
           </div>
         </section>
 
-        <section id="workflow" className="mx-auto max-w-6xl px-6 py-12 sm:py-16">
-          <div className="grid gap-6 lg:grid-cols-[0.85fr,1.15fr] lg:items-center">
+        <section id="workflow" className="mx-auto max-w-6xl px-6 py-12 sm:py-16 text-center">
+          <div className="grid gap-6 lg:grid-cols-1 lg:items-center">
             <div>
               <p className="text-sm uppercase tracking-[0.2em] text-indigo-200/85">How it works</p>
               <h2 className="mt-3 text-2xl font-semibold sm:text-3xl">From upload to insight in three simple steps.</h2>
@@ -197,7 +168,7 @@ export default function DocuMindLanding() {
                 DocuMind is designed to keep your document flow effortless, from first upload to final decision-ready insight.
               </p>
             </div>
-            <div className="grid gap-4 sm:grid-cols-3">
+            <div className="grid gap-4 sm:grid-cols-3 justify-items-center">
               {workflowSteps.map((step, index) => (
                 <div
                   key={step}
@@ -211,24 +182,24 @@ export default function DocuMindLanding() {
           </div>
         </section>
 
-        <section id="security" className="mx-auto max-w-6xl px-6 pb-20 pt-4">
-          <div className="grid gap-6 rounded-[28px] border border-white/10 bg-white/5 p-8 md:grid-cols-[1fr,0.9fr] md:p-10">
+        <section id="security" className="mx-auto max-w-6xl px-6 pb-20 pt-4 text-center">
+          <div className="grid gap-6 rounded-[28px] border border-white/10 bg-white/5 p-8 md:p-10">
             <div>
               <p className="text-sm uppercase tracking-[0.2em] text-indigo-200/85">Trust and control</p>
               <h2 className="mt-3 text-2xl font-semibold sm:text-3xl">Built for secure document workflows.</h2>
               <p className="mt-4 text-sm leading-7 text-slate-300">
-                Keep your documents protected with privacy-first design, strong access boundaries, and a workspace that is purpose-built for enterprise-ready operations.
+                Keep your documents protected with industry-standard controls and best-effort privacy practices.
               </p>
-              <div className="mt-6 space-y-3 text-sm text-slate-100">
-                <div className="flex items-center gap-3">
+              <div className="mt-6 flex flex-col items-center gap-3 text-sm text-slate-200">
+                <div className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-2">
                   <Check className="h-4 w-4 text-emerald-300" />
                   Role-aware access controls
                 </div>
-                <div className="flex items-center gap-3">
+                <div className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-2">
                   <Check className="h-4 w-4 text-emerald-300" />
                   Secure handling for every upload
                 </div>
-                <div className="flex items-center gap-3">
+                <div className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-2">
                   <Check className="h-4 w-4 text-emerald-300" />
                   Privacy-first AI workflows
                 </div>
