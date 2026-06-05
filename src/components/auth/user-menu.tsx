@@ -29,7 +29,7 @@ export function UserMenu() {
       </Button>
 
       {open ? (
-        <div className="absolute right-0 top-12 z-20 w-64 rounded-2xl border border-white/10 bg-slate-950/95 p-3 shadow-2xl">
+        <div className="absolute right-0 bottom-full mb-2 z-50 w-64 rounded-2xl border border-white/10 bg-slate-950/95 p-3 shadow-2xl">
           <p className="text-sm font-semibold text-white">{displayName}</p>
           <p className="mt-1 text-sm text-slate-300">{email}</p>
           <div className="mt-4 space-y-2">
