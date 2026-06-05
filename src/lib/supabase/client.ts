@@ -21,6 +21,8 @@ export function createBrowserSupabaseClient() {
     // eslint-disable-next-line no-console
     console.log('[supabase-client] NEXT_PUBLIC_SUPABASE_ANON_KEY present:', !!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
     // eslint-disable-next-line no-console
+    console.log('[supabase-client] NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY present:', !!process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY);
+    // eslint-disable-next-line no-console
     console.log('[supabase-client] resolved url:', url ? url : null);
     // eslint-disable-next-line no-console
     console.log('[supabase-client] anonKey present (masked):', anonKey ? '***' : null);

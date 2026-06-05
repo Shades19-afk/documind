@@ -60,7 +60,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           // Debug log: client missing at runtime
           try {
             // eslint-disable-next-line no-console
-            console.error('[auth] signIn called but Supabase client is null. NEXT_PUBLIC_SUPABASE_URL present:', !!process.env.NEXT_PUBLIC_SUPABASE_URL, 'anon present:', !!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
+            console.error(
+              '[auth] signIn called but Supabase client is null. NEXT_PUBLIC_SUPABASE_URL present:',
+              !!process.env.NEXT_PUBLIC_SUPABASE_URL,
+              'anon present:',
+              !!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+              'publishable present:',
+              !!process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY,
+            );
           } catch (e) {}
           throw new Error("Supabase is not configured.");
         }
@@ -76,7 +83,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           // Debug log: client missing at runtime
           try {
             // eslint-disable-next-line no-console
-            console.error('[auth] signUp called but Supabase client is null. NEXT_PUBLIC_SUPABASE_URL present:', !!process.env.NEXT_PUBLIC_SUPABASE_URL, 'anon present:', !!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
+            console.error(
+              '[auth] signUp called but Supabase client is null. NEXT_PUBLIC_SUPABASE_URL present:',
+              !!process.env.NEXT_PUBLIC_SUPABASE_URL,
+              'anon present:',
+              !!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+              'publishable present:',
+              !!process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY,
+            );
           } catch (e) {}
           throw new Error("Supabase is not configured.");
         }

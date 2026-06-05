@@ -1,7 +1,7 @@
 export function getSupabasePublicConfig() {
   return {
     url: process.env.NEXT_PUBLIC_SUPABASE_URL,
-    anonKey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+    anonKey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY,
   };
 }
 
@@ -13,7 +13,10 @@ export function getSupabaseServiceConfig() {
 }
 
 export function hasSupabasePublicConfig() {
-  return Boolean(process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
+  return Boolean(
+    process.env.NEXT_PUBLIC_SUPABASE_URL &&
+      (process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY),
+  );
 }
 
 export function hasSupabaseServiceConfig() {
@@ -41,7 +44,7 @@ export function assertSupabaseServerEnv() {
       "Missing Supabase public environment variables.",
     ),
     anonKey: requireSupabaseEnv(
-      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY,
       "Missing Supabase public environment variables.",
     ),
   };
