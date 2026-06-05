@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { AuthForm } from "@/components/auth/auth-form";
 import { useAuth } from "@/lib/auth/context";
@@ -47,6 +48,11 @@ export default function LoginPage() {
             }
           }}
         />
+        <div className="mt-4 text-center text-sm text-slate-300">
+          <Link href="/" className="text-indigo-100 transition hover:text-white">
+            Back to home
+          </Link>
+        </div>
       </div>
     </div>
   );
