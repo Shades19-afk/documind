@@ -156,7 +156,7 @@ export default function DocumentsPage() {
   return (
     <div className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.25),transparent_32%),linear-gradient(180deg,#09090b_0%,#111827_100%)] text-white">
       <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 pb-12 pt-6 sm:px-6 lg:px-8">
-        <header className="rounded-[28px] border border-white/10 bg-white/5 px-5 py-5 backdrop-blur sm:px-6">
+        <header className="relative z-20 rounded-[28px] border border-white/10 bg-white/5 px-5 py-5 backdrop-blur sm:px-6">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
             <div>
               <p className="text-sm uppercase tracking-[0.2em] text-indigo-200/80">Document library</p>
@@ -180,7 +180,7 @@ export default function DocumentsPage() {
           </div>
         </header>
 
-        <div className="grid gap-4 xl:grid-cols-[1.2fr,1fr]">
+        <div className="relative z-10 grid gap-4 xl:grid-cols-[1.2fr,1fr]">
           <Card className="border-white/10 bg-white/5">
             <CardContent className="p-5">
               <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">

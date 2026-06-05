@@ -294,7 +294,7 @@ export default function DashboardPage() {
   return (
     <div className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.22),transparent_28%),linear-gradient(180deg,#09090b_0%,#111827_100%)] text-white">
       <div className="mx-auto flex max-w-7xl flex-col gap-8 px-4 pb-12 pt-6 sm:px-6 lg:px-8">
-        <header className="rounded-[28px] border border-white/10 bg-white/5 px-5 py-4 backdrop-blur sm:px-6">
+        <header className="relative z-20 rounded-[28px] border border-white/10 bg-white/5 px-5 py-4 backdrop-blur sm:px-6">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
             <div>
               <p className="text-sm uppercase tracking-[0.2em] text-indigo-200/80">DocuMind</p>
@@ -318,7 +318,7 @@ export default function DashboardPage() {
           </div>
         </header>
 
-        <div className="grid gap-4 xl:grid-cols-[1.7fr,1fr]">
+        <div className="relative z-10 grid gap-4 xl:grid-cols-[1.7fr,1fr]">
           <div className="space-y-4">
             <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
               <Card className="border-white/10 bg-white/5">

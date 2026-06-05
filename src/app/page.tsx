@@ -11,10 +11,10 @@ export default function DocuMindLanding() {
           <div className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-100">DocuMind</div>
           <div className="flex items-center gap-3">
             <Button asChild variant="ghost" className="text-slate-100 hover:text-white">
-              <a href="/dashboard">Open workspace</a>
+              <a href="/auth/login">Open workspace</a>
             </Button>
             <Button asChild className="rounded-md bg-slate-100 px-4 py-2 text-sm font-medium text-slate-950 hover:bg-slate-200">
-              <a href="/dashboard">Sign in</a>
+              <a href="/auth/login">Sign in</a>
             </Button>
           </div>
         </div>
@@ -33,7 +33,7 @@ export default function DocuMindLanding() {
               </p>
               <div className="flex flex-wrap items-center gap-3">
                 <Button asChild className="rounded-md bg-slate-100 px-4 py-2 text-sm font-medium text-slate-950 hover:bg-slate-200">
-                  <a href="/dashboard">Open workspace</a>
+                  <a href="/auth/login">Open workspace</a>
                 </Button>
                 <a className="text-sm font-medium text-slate-300 hover:text-white" href="#workflow">
                   See workflow
