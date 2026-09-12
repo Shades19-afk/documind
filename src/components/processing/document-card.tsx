@@ -8,30 +8,30 @@ import { BookOpen, Download, FileText, Loader2, RefreshCcw, Sparkles } from "luc
 function statusClasses(status: CachedDocument["status"]) {
   switch (status) {
     case "completed":
-      return "bg-emerald-500/15 text-emerald-50 border-emerald-300/30";
+      return "bg-chart-2/15 text-chart-2 border-chart-2/40";
     case "failed":
-      return "bg-rose-500/15 text-rose-50 border-rose-300/30";
+      return "bg-destructive/10 text-destructive border-destructive/40";
     case "processing":
-      return "bg-sky-500/15 text-sky-50 border-sky-300/30";
+      return "bg-chart-3/15 text-chart-3 border-chart-3/40";
     default:
-      return "bg-amber-500/15 text-amber-50 border-amber-300/30";
+      return "bg-chart-4/15 text-chart-4 border-chart-4/40";
   }
 }
 
 function generationClasses(status: NonNullable<ProcessedDocument["generationStatus"]>) {
   switch (status) {
     case "completed":
-      return "bg-emerald-500/15 text-emerald-50 border-emerald-300/30";
+      return "bg-chart-2/15 text-chart-2 border-chart-2/40";
     case "quota_exceeded":
-      return "bg-amber-500/15 text-amber-50 border-amber-300/30";
+      return "bg-chart-4/15 text-chart-4 border-chart-4/40";
     case "retry_pending":
-      return "bg-sky-500/15 text-sky-50 border-sky-300/30";
+      return "bg-chart-3/15 text-chart-3 border-chart-3/40";
     case "generation_failed":
-      return "bg-rose-500/15 text-rose-50 border-rose-300/30";
+      return "bg-destructive/10 text-destructive border-destructive/40";
     case "generating":
-      return "bg-sky-500/15 text-sky-50 border-sky-300/30";
+      return "bg-chart-3/15 text-chart-3 border-chart-3/40";
     default:
-      return "bg-slate-500/15 text-slate-100 border-slate-300/30";
+      return "bg-secondary text-secondary-foreground border-border";
   }
 }
 
@@ -85,32 +85,32 @@ export function DocumentCard({
     : undefined;
 
   return (
-    <Card className="border-white/10 bg-white/5 transition hover:border-indigo-300/50 hover:bg-white/[0.06]">
+    <Card className="border-border bg-card transition hover:border-accent">
       <CardContent className="p-5">
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0">
-            <p className="text-lg font-semibold text-white">{document.filename}</p>
-            <p className="mt-2 text-sm text-gray-200">{summary}</p>
+            <p className="font-serif text-lg font-semibold text-foreground">{document.filename}</p>
+            <p className="mt-2 text-sm text-muted-foreground">{summary}</p>
           </div>
-          <FileText className="mt-1 h-5 w-5 shrink-0 text-indigo-200" />
+          <FileText className="mt-1 h-5 w-5 shrink-0 text-accent" />
         </div>
 
         <div className="mt-4 flex flex-wrap gap-2 text-xs">
-          <span className="rounded-full bg-white/5 px-2.5 py-1 text-slate-100">{document.mimeType}</span>
-          <span className="rounded-full bg-white/5 px-2.5 py-1 text-slate-100">{formatBytes(document.sizeBytes)}</span>
-          <span className="rounded-full bg-white/5 px-2.5 py-1 text-slate-100">{document.pageCount} pages</span>
-          <span className="rounded-full bg-white/5 px-2.5 py-1 text-slate-100">{formatDate(document.updatedAt)}</span>
+          <span className="rounded-full bg-secondary px-2.5 py-1 text-secondary-foreground">{document.mimeType}</span>
+          <span className="rounded-full bg-secondary px-2.5 py-1 text-secondary-foreground">{formatBytes(document.sizeBytes)}</span>
+          <span className="rounded-full bg-secondary px-2.5 py-1 text-secondary-foreground">{document.pageCount} pages</span>
+          <span className="rounded-full bg-secondary px-2.5 py-1 text-secondary-foreground">{formatDate(document.updatedAt)}</span>
         </div>
 
         <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
           <div className="flex flex-wrap gap-2">
             <span className={`rounded-full border px-2.5 py-1 text-xs ${statusClasses(document.status)}`}>{statusLabel(document.status)}</span>
             <span className={`rounded-full border px-2.5 py-1 text-xs ${generationClasses(generationStatus)}`}>{generationLabel(generationStatus)}</span>
-            <span className="rounded-full border border-white/10 px-2.5 py-1 text-xs text-gray-200">
+            <span className="rounded-full border border-border px-2.5 py-1 text-xs text-muted-foreground">
               {document.chunks.length} chunks
             </span>
             {document.errorMessage ? (
-              <span className="rounded-full border border-rose-300/25 bg-rose-500/10 px-2.5 py-1 text-xs text-rose-50">
+              <span className="rounded-full border border-destructive/40 bg-destructive/10 px-2.5 py-1 text-xs text-foreground">
                 {document.errorMessage}
               </span>
             ) : null}
@@ -120,7 +120,7 @@ export function DocumentCard({
             <Button
               type="button"
               variant="outline"
-              className="border-white/10 bg-white/5 text-white hover:bg-white/10"
+              className="border-border bg-background text-foreground hover:bg-accent hover:text-accent-foreground"
               onClick={onRetry}
             >
               <RefreshCcw className="mr-2 h-4 w-4" />
@@ -129,8 +129,8 @@ export function DocumentCard({
           ) : null}
         </div>
 
-        <div className="mt-4 rounded-2xl border border-white/10 bg-slate-950/35 p-3">
-          <div className="flex items-center gap-2 text-sm text-indigo-100">
+        <div className="mt-4 rounded-2xl border border-border bg-background p-3">
+          <div className="flex items-center gap-2 text-sm text-accent">
             <BookOpen className="h-4 w-4" />
             {isGeneratingStudy
               ? "Generating study tools…"
@@ -138,7 +138,7 @@ export function DocumentCard({
                 ? "Study toolkit ready"
                 : "Generate study tools to unlock notes and flashcards"}
           </div>
-          <p className="mt-3 text-sm text-gray-200">
+          <p className="mt-3 text-sm text-muted-foreground">
             {isGeneratingStudy
               ? "DocuMind is preparing a fresh study package. You can keep using the document while this finishes."
               : overview}
@@ -147,7 +147,7 @@ export function DocumentCard({
           {keyPoints.length > 0 ? (
             <div className="mt-3 flex flex-wrap gap-2">
               {keyPoints.slice(0, 4).map((point) => (
-                <span key={point} className="rounded-full bg-white/5 px-2.5 py-1 text-xs text-slate-100">
+                <span key={point} className="rounded-full bg-secondary px-2.5 py-1 text-xs text-secondary-foreground">
                   {point}
                 </span>
               ))}
@@ -155,12 +155,12 @@ export function DocumentCard({
           ) : null}
 
           {studyPackage ? (
-            <div className="mt-4 space-y-2 text-sm text-gray-200">
-              <p className="font-medium text-white">Detailed overview</p>
+            <div className="mt-4 space-y-2 text-sm text-muted-foreground">
+              <p className="font-medium text-foreground">Detailed overview</p>
               <p>{studyPackage.detailedSummary}</p>
               <div className="grid gap-2 sm:grid-cols-2">
                 <div>
-                  <p className="text-xs uppercase tracking-[0.2em] text-indigo-100">Key takeaways</p>
+                  <p className="text-xs font-medium text-accent">Key takeaways</p>
                   <ul className="mt-2 space-y-1">
                     {studyPackage.keyTakeaways.slice(0, 3).map((item) => (
                       <li key={item}>• {item}</li>
@@ -168,7 +168,7 @@ export function DocumentCard({
                   </ul>
                 </div>
                 <div>
-                  <p className="text-xs uppercase tracking-[0.2em] text-indigo-100">Important concepts</p>
+                  <p className="text-xs font-medium text-accent">Important concepts</p>
                   <ul className="mt-2 space-y-1">
                     {studyPackage.importantConcepts.slice(0, 3).map((item) => (
                       <li key={item}>• {item}</li>
@@ -180,7 +180,7 @@ export function DocumentCard({
           ) : null}
 
           {safeGenerationMessage ? (
-            <p className="mt-3 rounded-xl border border-rose-300/25 bg-rose-500/10 px-3 py-2 text-sm text-rose-50">
+            <p className="mt-3 rounded-xl border border-destructive/40 bg-destructive/10 px-3 py-2 text-sm text-foreground">
               {safeGenerationMessage}
             </p>
           ) : null}
@@ -190,7 +190,7 @@ export function DocumentCard({
           <Button
             type="button"
             variant="outline"
-            className="border-white/10 bg-white/5 text-white hover:bg-white/10"
+            className="border-border bg-background text-foreground hover:bg-accent hover:text-accent-foreground"
             onClick={onGenerateStudy}
             disabled={isGeneratingStudy}
           >
@@ -210,7 +210,7 @@ export function DocumentCard({
               <Button
                 type="button"
                 variant="outline"
-                className="border-white/10 bg-white/5 text-white hover:bg-white/10"
+                className="border-border bg-background text-foreground hover:bg-accent hover:text-accent-foreground"
                 onClick={() => onExport(document, "markdown")}
                 disabled={isGeneratingStudy}
               >
@@ -220,7 +220,7 @@ export function DocumentCard({
               <Button
                 type="button"
                 variant="outline"
-                className="border-white/10 bg-white/5 text-white hover:bg-white/10"
+                className="border-border bg-background text-foreground hover:bg-accent hover:text-accent-foreground"
                 onClick={() => onExport(document, "text")}
                 disabled={isGeneratingStudy}
               >
@@ -230,7 +230,7 @@ export function DocumentCard({
               <Button
                 type="button"
                 variant="outline"
-                className="border-white/10 bg-white/5 text-white hover:bg-white/10"
+                className="border-border bg-background text-foreground hover:bg-accent hover:text-accent-foreground"
                 onClick={() => onExport(document, "json")}
                 disabled={isGeneratingStudy}
               >
@@ -242,7 +242,7 @@ export function DocumentCard({
         </div>
 
         {!compact ? (
-          <div className="mt-4 flex items-center gap-2 text-sm text-indigo-100">
+          <div className="mt-4 flex items-center gap-2 text-sm text-accent">
             <Sparkles className="h-4 w-4" />
             {document.status === "completed"
               ? "Ready for review, note taking, and export."

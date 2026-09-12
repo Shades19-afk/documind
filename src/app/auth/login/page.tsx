@@ -20,14 +20,14 @@ export default function LoginPage() {
 
   if (loading) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.22),transparent_28%),linear-gradient(180deg,#09090b_0%,#111827_100%)] text-white">
-        <p className="text-sm text-slate-200">Loading your account…</p>
+      <div className="flex min-h-screen items-center justify-center bg-background text-foreground">
+        <p className="text-sm text-muted-foreground">Loading your account…</p>
       </div>
     );
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.22),transparent_28%),linear-gradient(180deg,#09090b_0%,#111827_100%)] px-4 py-10 text-white">
+    <div className="flex min-h-screen items-center justify-center bg-background px-4 py-10 text-foreground">
       <div className="w-full max-w-md">
         <AuthForm
           mode="login"
@@ -65,8 +65,8 @@ export default function LoginPage() {
             }
           }}
         />
-        <div className="mt-4 text-center text-sm text-slate-300">
-          <Link href="/" className="text-indigo-100 transition hover:text-white">
+        <div className="mt-4 text-center text-sm text-muted-foreground">
+          <Link href="/" className="text-accent transition hover:text-accent/80">
             Back to home
           </Link>
         </div>

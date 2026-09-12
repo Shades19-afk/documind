@@ -21,7 +21,7 @@ export function UserMenu() {
       <Button
         type="button"
         variant="outline"
-        className="border-white/10 bg-white/5 text-white hover:bg-white/10"
+        className="border-border bg-background text-foreground hover:bg-accent hover:text-accent-foreground"
         onClick={() => setOpen((current) => !current)}
       >
         <UserCircle2 className="mr-2 h-4 w-4" />
@@ -29,20 +29,20 @@ export function UserMenu() {
       </Button>
 
       {open ? (
-        <div className="absolute right-0 top-full mt-2 z-50 w-64 rounded-2xl border border-white/10 bg-slate-950/95 p-3 shadow-2xl">
-          <p className="text-sm font-semibold text-white">{displayName}</p>
-          <p className="mt-1 text-sm text-slate-300">{email}</p>
+        <div className="absolute right-0 top-full mt-2 z-50 w-64 rounded-2xl border border-border bg-card p-3">
+          <p className="text-sm font-semibold text-foreground">{displayName}</p>
+          <p className="mt-1 text-sm text-muted-foreground">{email}</p>
           <div className="mt-4 space-y-2">
             <Link
               href="/documents"
-              className="block rounded-xl px-3 py-2 text-sm text-slate-100 transition hover:bg-white/5"
+              className="block rounded-xl px-3 py-2 text-sm text-foreground transition hover:bg-accent hover:text-accent-foreground"
               onClick={() => setOpen(false)}
             >
               View documents
             </Link>
             <Link
               href="/dashboard"
-              className="block rounded-xl px-3 py-2 text-sm text-slate-100 transition hover:bg-white/5"
+              className="block rounded-xl px-3 py-2 text-sm text-foreground transition hover:bg-accent hover:text-accent-foreground"
               onClick={() => setOpen(false)}
             >
               Open dashboard
@@ -50,7 +50,7 @@ export function UserMenu() {
             <Button
               type="button"
               variant="outline"
-              className="w-full justify-start border-white/10 bg-transparent text-white hover:bg-white/10"
+              className="w-full justify-start border-border bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground"
               onClick={async () => {
                 setOpen(false);
                 await signOut();

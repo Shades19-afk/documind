@@ -30,14 +30,14 @@ export function AuthForm({
       : "Create your account to save documents and keep your study history across sessions.";
 
   return (
-    <Card className="border-white/10 bg-white/5 backdrop-blur">
+    <Card className="border-border bg-card">
       <CardContent className="p-6 sm:p-8">
         <div className="space-y-2">
-          <p className="text-sm uppercase tracking-[0.2em] text-indigo-200/80">DocuMind</p>
-          <h1 className="text-2xl font-semibold text-white">
+          <p className="text-sm font-medium text-accent">DocuMind</p>
+          <h1 className="font-serif text-2xl font-semibold text-foreground">
             {mode === "login" ? "Welcome back" : "Create your DocuMind workspace"}
           </h1>
-          <p className="text-sm text-slate-300">{helperText}</p>
+          <p className="text-sm text-muted-foreground">{helperText}</p>
         </div>
 
         <form
@@ -48,18 +48,18 @@ export function AuthForm({
           }}
         >
           {mode === "signup" ? (
-            <label className="block text-sm text-slate-200">
+            <label className="block text-sm text-foreground">
               <span className="mb-2 block">Display name</span>
               <input
                 value={displayName}
                 onChange={(event) => setDisplayName(event.target.value)}
                 placeholder="Jordan Lee"
-                className="w-full rounded-xl border border-white/10 bg-slate-950/50 px-3 py-2 outline-none placeholder:text-slate-500"
+                className="w-full rounded-xl border border-input bg-background px-3 py-2 outline-none placeholder:text-muted-foreground"
               />
             </label>
           ) : null}
 
-          <label className="block text-sm text-slate-200">
+          <label className="block text-sm text-foreground">
             <span className="mb-2 block">Email address</span>
             <input
               type="email"
@@ -67,11 +67,11 @@ export function AuthForm({
               onChange={(event) => setEmail(event.target.value)}
               required
               placeholder="you@company.com"
-              className="w-full rounded-xl border border-white/10 bg-slate-950/50 px-3 py-2 outline-none placeholder:text-slate-500"
+              className="w-full rounded-xl border border-input bg-background px-3 py-2 outline-none placeholder:text-muted-foreground"
             />
           </label>
 
-          <label className="block text-sm text-slate-200">
+          <label className="block text-sm text-foreground">
             <span className="mb-2 block">Password</span>
             <input
               type="password"
@@ -80,19 +80,19 @@ export function AuthForm({
               required
               minLength={6}
               placeholder="At least 6 characters"
-              className="w-full rounded-xl border border-white/10 bg-slate-950/50 px-3 py-2 outline-none placeholder:text-slate-500"
+              className="w-full rounded-xl border border-input bg-background px-3 py-2 outline-none placeholder:text-muted-foreground"
             />
           </label>
 
           {errorMessage ? (
-            <p className="rounded-xl border border-rose-300/25 bg-rose-500/10 px-3 py-2 text-sm text-rose-100">
+            <p className="rounded-xl border border-destructive/40 bg-destructive/10 px-3 py-2 text-sm text-foreground">
               {errorMessage}
             </p>
           ) : null}
 
           <Button
             type="submit"
-            className="w-full bg-indigo-500 hover:bg-indigo-400"
+            className="w-full bg-accent text-accent-foreground hover:bg-accent/90"
             disabled={isSubmitting}
           >
             {isSubmitting ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
@@ -100,13 +100,13 @@ export function AuthForm({
           </Button>
         </form>
 
-        <div className="mt-5 flex items-center justify-between gap-3 text-sm text-slate-300">
+        <div className="mt-5 flex items-center justify-between gap-3 text-sm text-muted-foreground">
           <span>
             {mode === "login" ? "Need an account?" : "Already have an account?"}
           </span>
           <Link
             href={mode === "login" ? "/auth/signup" : "/auth/login"}
-            className="text-indigo-100 transition hover:text-white"
+            className="text-accent transition hover:text-accent/80"
           >
             {mode === "login" ? "Create one" : "Sign in"}
           </Link>

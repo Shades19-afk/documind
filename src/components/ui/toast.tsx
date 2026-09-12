@@ -22,11 +22,11 @@ const ToastContext = createContext<ToastContextValue | undefined>(undefined);
 function variantStyles(variant: ToastVariant) {
   switch (variant) {
     case "success":
-      return "border-emerald-300/30 bg-emerald-500/10 text-emerald-50";
+      return "border-border bg-card text-foreground";
     case "error":
-      return "border-rose-300/30 bg-rose-500/10 text-rose-50";
+      return "border-destructive/40 bg-card text-foreground";
     default:
-      return "border-sky-300/30 bg-sky-500/10 text-sky-50";
+      return "border-border bg-card text-foreground";
   }
 }
 
@@ -73,20 +73,20 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
           {toasts.map((toast) => (
             <div
               key={toast.id}
-              className={`pointer-events-auto flex items-start gap-3 rounded-2xl border border-white/20 px-4 py-3 shadow-2xl backdrop-blur ${variantStyles(toast.variant)}`}
+              className={`pointer-events-auto flex items-start gap-3 rounded-2xl border px-4 py-3 ${variantStyles(toast.variant)}`}
             >
               <div className="mt-0.5">{variantIcon(toast.variant)}</div>
               <div className="flex-1">
                 <p className="text-sm font-semibold">{toast.title}</p>
                 {toast.description ? (
-                  <p className="mt-1 text-sm text-white/85">{toast.description}</p>
+                  <p className="mt-1 text-sm text-muted-foreground">{toast.description}</p>
                 ) : null}
               </div>
               <Button
                 type="button"
                 variant="ghost"
                 size="icon"
-                className="h-8 w-8 rounded-full text-white hover:bg-white/10"
+                className="h-8 w-8 rounded-full text-muted-foreground hover:bg-accent hover:text-accent-foreground"
                 onClick={() => setToasts((current) => current.filter((item) => item.id !== toast.id))}
               >
                 <X className="h-4 w-4" />
