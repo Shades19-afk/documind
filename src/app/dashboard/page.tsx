@@ -16,6 +16,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/components/ui/toast";
 import { UserMenu } from "@/components/auth/user-menu";
+import { EmptyState } from "@/components/empty-state";
 import { getFriendlyGenerationMessage } from "@/lib/ai/errors";
 import { getDocumentDetails, getDocumentStatus, getUserDocuments, ProcessedDocument, uploadPdf } from "@/lib/processing-client";
 
@@ -292,22 +293,22 @@ export default function DashboardPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.22),transparent_28%),linear-gradient(180deg,#09090b_0%,#111827_100%)] text-white">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="mx-auto flex max-w-7xl flex-col gap-8 px-4 pb-12 pt-6 sm:px-6 lg:px-8">
-        <header className="relative z-50 overflow-visible rounded-[28px] border border-white/10 bg-white/5 px-5 py-4 backdrop-blur sm:px-6">
+        <header className="relative z-50 overflow-visible rounded-lg border border-border bg-card px-5 py-4 sm:px-6">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
             <div>
-              <p className="text-sm uppercase tracking-[0.2em] text-indigo-200/80">DocuMind</p>
-              <h1 className="mt-2 text-2xl font-semibold sm:text-3xl">AI PDF summarizer for faster study and review</h1>
-              <p className="mt-2 max-w-2xl text-sm text-slate-300">
+              <p className="text-sm font-medium text-accent">DocuMind</p>
+              <h1 className="font-serif mt-2 text-2xl font-semibold sm:text-3xl">AI PDF summarizer for faster study and review</h1>
+              <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
                 Upload PDFs, generate concise summaries, extract key points, build study notes, and export your learning toolkit in one polished workspace.
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-3">
-              <Button asChild variant="outline" className="border-white/10 bg-white/5 text-white hover:bg-white/10">
+              <Button asChild variant="outline" className="border-border bg-background text-foreground hover:bg-accent hover:text-accent-foreground">
                 <Link href="/documents">Open library</Link>
               </Button>
-              <Button asChild className="bg-indigo-500 hover:bg-indigo-400">
+              <Button asChild className="bg-accent text-accent-foreground hover:bg-accent/90">
                 <Link href="#upload-center">
                   <Sparkles className="mr-2 h-4 w-4" />
                   Start summarizing
@@ -321,37 +322,37 @@ export default function DashboardPage() {
         <div className="grid gap-4 xl:grid-cols-[1.7fr,1fr]">
           <div className="space-y-4">
             <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-              <Card className="border-white/10 bg-white/5">
+              <Card className="border-border bg-card">
                 <CardContent className="p-5">
-                  <p className="text-sm text-gray-200">Documents</p>
-                  <p className="mt-3 text-3xl font-semibold text-white">{stats.total}</p>
-                  <p className="mt-1 text-xs text-emerald-200">Live in your workspace</p>
+                  <p className="text-sm text-muted-foreground">Documents</p>
+                  <p className="mt-3 text-3xl font-semibold text-foreground">{stats.total}</p>
+                  <p className="mt-1 text-xs text-accent">Live in your workspace</p>
                 </CardContent>
               </Card>
-              <Card className="border-white/10 bg-white/5">
+              <Card className="border-border bg-card">
                 <CardContent className="p-5">
-                  <p className="text-sm text-gray-200">Ready</p>
-                  <p className="mt-3 text-3xl font-semibold text-white">{stats.ready}</p>
-                  <p className="mt-1 text-xs text-gray-400">AI summaries available</p>
+                  <p className="text-sm text-muted-foreground">Ready</p>
+                  <p className="mt-3 text-3xl font-semibold text-foreground">{stats.ready}</p>
+                  <p className="mt-1 text-xs text-muted-foreground">AI summaries available</p>
                 </CardContent>
               </Card>
-              <Card className="border-white/10 bg-white/5">
+              <Card className="border-border bg-card">
                 <CardContent className="p-5">
-                  <p className="text-sm text-gray-200">Processing</p>
-                  <p className="mt-3 text-3xl font-semibold text-white">{stats.processing}</p>
-                  <p className="mt-1 text-xs text-gray-400">Queued for indexing</p>
+                  <p className="text-sm text-muted-foreground">Processing</p>
+                  <p className="mt-3 text-3xl font-semibold text-foreground">{stats.processing}</p>
+                  <p className="mt-1 text-xs text-muted-foreground">Queued for indexing</p>
                 </CardContent>
               </Card>
-              <Card className="border-white/10 bg-white/5">
+              <Card className="border-border bg-card">
                 <CardContent className="p-5">
-                  <p className="text-sm text-gray-200">Needs review</p>
-                  <p className="mt-3 text-3xl font-semibold text-white">{stats.needsReview}</p>
-                  <p className="mt-1 text-xs text-gray-400">Requires attention</p>
+                  <p className="text-sm text-muted-foreground">Needs review</p>
+                  <p className="mt-3 text-3xl font-semibold text-foreground">{stats.needsReview}</p>
+                  <p className="mt-1 text-xs text-muted-foreground">Requires attention</p>
                 </CardContent>
               </Card>
             </div>
 
-            <Card id="upload-center" className="border-white/10 bg-white/5">
+            <Card id="upload-center" className="border-border bg-card">
               <CardHeader>
                 <CardTitle className="text-lg">Upload center</CardTitle>
               </CardHeader>
@@ -365,18 +366,18 @@ export default function DashboardPage() {
                   onDrop={handleDrop}
                   className={`rounded-2xl border border-dashed p-6 transition ${
                     isDragging
-                      ? "border-indigo-300 bg-indigo-500/10"
-                      : "border-white/10 bg-white/[0.02]"
+                      ? "border-accent bg-accent/10"
+                      : "border-border bg-background"
                   }`}
                 >
                   <div className="flex flex-col items-center justify-center gap-4 text-center sm:flex-row sm:text-left">
-                    <div className="rounded-2xl bg-indigo-500/20 p-3 text-indigo-100">
+                    <div className="rounded-2xl bg-accent/20 p-3 text-accent-foreground">
                       <UploadCloud className="h-8 w-8" />
                     </div>
                     <div className="space-y-2">
                       <p className="text-lg font-semibold">Drag and drop your PDFs here</p>
-                      <p className="text-sm text-gray-200">{uploadMessage}</p>
-                      {errorMessage ? <p className="text-sm text-rose-200">{errorMessage}</p> : null}
+                      <p className="text-sm text-muted-foreground">{uploadMessage}</p>
+                      {errorMessage ? <p className="text-sm text-destructive">{errorMessage}</p> : null}
                       <div className="flex flex-wrap justify-center gap-3 sm:justify-start">
                         <input
                           ref={fileInputRef}
@@ -390,13 +391,13 @@ export default function DashboardPage() {
                         <Button
                           type="button"
                           variant="outline"
-                          className="border-white/10 bg-white/5 text-white hover:bg-white/10"
+                          className="border-border bg-background text-foreground hover:bg-accent hover:text-accent-foreground"
                           onClick={() => fileInputRef.current?.click()}
                         >
                           <Plus className="mr-2 h-4 w-4" />
                           Choose files
                         </Button>
-                        <Button asChild variant="ghost" className="text-slate-200 hover:text-white">
+                        <Button asChild variant="ghost" className="text-muted-foreground hover:bg-accent hover:text-accent-foreground">
                           <Link href="/documents">Browse library</Link>
                         </Button>
                       </div>
@@ -406,19 +407,19 @@ export default function DashboardPage() {
 
                 <div className="space-y-3">
                   {activeUploads.length === 0 ? (
-                    <div className="rounded-2xl border border-white/10 bg-slate-950/40 px-4 py-3 text-sm text-gray-200">
+                    <div className="rounded-2xl border border-border bg-background px-4 py-3 text-sm text-muted-foreground">
                       No uploads in progress. Your files will appear here once processing starts.
                     </div>
                   ) : (
                     activeUploads.map((upload) => (
                       <div
                         key={upload.id}
-                        className="rounded-2xl border border-white/10 bg-slate-950/50 px-4 py-3"
+                        className="rounded-2xl border border-border bg-background px-4 py-3"
                       >
                         <div className="flex items-center justify-between gap-4">
                           <div>
                             <p className="font-medium">{upload.fileName}</p>
-                            <p className="text-xs text-gray-400">
+                            <p className="text-xs text-muted-foreground">
                               {upload.status === "uploading"
                                 ? "Preparing upload"
                                 : upload.status === "processing"
@@ -430,16 +431,16 @@ export default function DashboardPage() {
                           </div>
                           <div className="flex items-center gap-2 text-sm">
                             {upload.status === "completed" ? (
-                              <CheckCircle2 className="h-4 w-4 text-emerald-300" />
+                              <CheckCircle2 className="h-4 w-4 text-chart-2" />
                             ) : (
-                              <Loader2 className="h-4 w-4 animate-spin text-indigo-200" />
+                              <Loader2 className="h-4 w-4 animate-spin text-accent" />
                             )}
                             <span>{upload.progress}%</span>
                           </div>
                         </div>
-                        <div className="mt-3 h-2 overflow-hidden rounded-full bg-white/10">
+                        <div className="mt-3 h-2 overflow-hidden rounded-full bg-secondary">
                           <div
-                            className="h-full rounded-full bg-gradient-to-r from-indigo-400 to-cyan-300"
+                            className="h-full rounded-full bg-accent"
                             style={{ width: `${upload.progress}%` }}
                           />
                         </div>
@@ -452,32 +453,36 @@ export default function DashboardPage() {
           </div>
 
           <div className="space-y-4">
-            <Card className="border-white/10 bg-white/5">
+            <Card className="border-border bg-card">
               <CardHeader>
-                <CardTitle className="text-lg text-white">Recent documents</CardTitle>
+                <CardTitle className="font-serif text-lg text-foreground">Recent documents</CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
                 {recentDocuments.length === 0 ? (
-                  <div className="rounded-2xl border border-dashed border-white/10 px-4 py-6 text-sm text-gray-200">
-                    Upload your first PDF to start seeing it here.
-                  </div>
+                  <EmptyState
+                    title="Your desk is clear"
+                    description="Upload your first PDF and DocuMind will start turning it into notes, highlights, and study tools."
+                    actionLabel="Upload a PDF"
+                    actionHref="#upload-center"
+                    className="px-4 py-6"
+                  />
                 ) : (
                   recentDocuments.map((document) => (
                     <div
                       key={document.id}
-                      className="rounded-2xl border border-white/10 bg-slate-950/40 px-4 py-3"
+                      className="rounded-2xl border border-border bg-background px-4 py-3"
                     >
                       <div className="flex items-start justify-between gap-3">
                         <div>
                           <p className="font-medium">{document.filename}</p>
-                          <p className="mt-1 text-sm text-gray-200">{document.summary}</p>
+                          <p className="mt-1 text-sm text-muted-foreground">{document.summary}</p>
                         </div>
-                        <CheckCircle2 className="mt-1 h-4 w-4 text-indigo-200" />
+                        <CheckCircle2 className="mt-1 h-4 w-4 text-accent" />
                       </div>
-                      <div className="mt-3 flex flex-wrap gap-2 text-xs text-gray-400">
-                        <span className="rounded-full bg-white/5 px-2 py-1">{document.mimeType}</span>
-                        <span className="rounded-full bg-white/5 px-2 py-1">{document.pageCount} pages</span>
-                        <span className="rounded-full bg-white/5 px-2 py-1">{document.status}</span>
+                      <div className="mt-3 flex flex-wrap gap-2 text-xs text-muted-foreground">
+                        <span className="rounded-full bg-secondary px-2 py-1">{document.mimeType}</span>
+                        <span className="rounded-full bg-secondary px-2 py-1">{document.pageCount} pages</span>
+                        <span className="rounded-full bg-secondary px-2 py-1">{document.status}</span>
                       </div>
                     </div>
                   ))
@@ -485,28 +490,28 @@ export default function DashboardPage() {
               </CardContent>
             </Card>
 
-            <Card className="border-white/10 bg-white/5">
+            <Card className="border-border bg-card">
               <CardHeader>
                 <CardTitle className="text-lg">Workspace health</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-3 text-sm text-gray-200">
-                <div className="flex items-center justify-between rounded-2xl bg-white/[0.03] px-4 py-3">
+              <CardContent className="space-y-3 text-sm text-muted-foreground">
+                <div className="flex items-center justify-between rounded-2xl bg-background px-4 py-3">
                   <span className="flex items-center gap-2">
-                    <Globe className="h-4 w-4 text-indigo-200" />
+                    <Globe className="h-4 w-4 text-accent" />
                     Secure syncing
                   </span>
-                  <span className="text-emerald-200">Enabled</span>
+                  <span className="text-chart-2">Enabled</span>
                 </div>
-                <div className="flex items-center justify-between rounded-2xl bg-white/[0.03] px-4 py-3">
+                <div className="flex items-center justify-between rounded-2xl bg-background px-4 py-3">
                   <span className="flex items-center gap-2">
-                    <FolderOpen className="h-4 w-4 text-indigo-200" />
+                    <FolderOpen className="h-4 w-4 text-accent" />
                     Active library
                   </span>
                   <span>{stats.total} docs</span>
                 </div>
-                <div className="flex items-center justify-between rounded-2xl bg-white/[0.03] px-4 py-3">
+                <div className="flex items-center justify-between rounded-2xl bg-background px-4 py-3">
                   <span className="flex items-center gap-2">
-                    <ArrowRight className="h-4 w-4 text-indigo-200" />
+                    <ArrowRight className="h-4 w-4 text-accent" />
                     Next action
                   </span>
                   <span>Review uploads</span>
