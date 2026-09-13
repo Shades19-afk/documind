@@ -473,8 +473,9 @@ export default function DashboardPage() {
                   />
                 ) : (
                   recentDocuments.map((document) => (
-                    <div
+                    <Link
                       key={document.id}
+                      href={`/documents/${document.id}`}
                       className="rounded-2xl border border-border bg-background px-4 py-3"
                     >
                       <div className="flex items-start justify-between gap-3">
@@ -489,7 +490,7 @@ export default function DashboardPage() {
                         <span className="rounded-full bg-secondary px-2 py-1">{document.pageCount} pages</span>
                         <span className="rounded-full bg-secondary px-2 py-1">{document.status}</span>
                       </div>
-                    </div>
+                    </Link>
                   ))
                 )}
               </CardContent>
