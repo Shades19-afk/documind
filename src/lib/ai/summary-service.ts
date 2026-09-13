@@ -94,14 +94,36 @@ function buildFallbackStudyPackage(
 
 function parseStructuredResponse(text: string): StudyPackage | null {
   const cleaned = text.trim();
+  console.error("[DocuMind AI] raw response:", text);
+ const unfenced = cleaned
+  .replace(/^```(?:json)?\s*/i, "")
+  .replace(/\s*```$/, "")
+  .trim();
+  
+  let parsed: Record<string, unknown> | null = null;
 
   try {
-    const parsed = JSON.parse(cleaned);
+    parsed = JSON.parse(unfenced);
+  } catch {
+    const firstBrace = unfenced.indexOf("{");
+    const lastBrace = unfenced.lastIndexOf("}");
 
-    if (!parsed || typeof parsed !== "object") {
+    if (firstBrace === -1 || lastBrace <= firstBrace) {
       return null;
     }
 
+    try {
+      parsed = JSON.parse(unfenced.slice(firstBrace, lastBrace + 1));
+    } catch {
+      return null;
+    }
+  }
+
+  if (!parsed || typeof parsed !== "object") {
+    return null;
+  }
+
+  try {
     const flashcards = Array.isArray(parsed.flashcards)
       ? parsed.flashcards
           .filter((item: unknown): item is Flashcard => {
