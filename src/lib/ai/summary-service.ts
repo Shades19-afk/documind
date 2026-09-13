@@ -1,4 +1,4 @@
-import { generateText, clampText } from "./gemini";
+import { generateText, clampText } from "./openrouter";
 import { classifyAiError, getFriendlyGenerationMessage, type GenerationFailureStatus } from "./errors";
 import { Flashcard, StudyPackage, StudySectionSummary, SummaryPayload } from "./types";
 
@@ -158,7 +158,7 @@ function parseStructuredResponse(text: string): StudyPackage | null {
       importantTopics: normalizeStringArray(parsed.importantTopics).slice(0, 6),
       generatedAt: typeof parsed.generatedAt === "string" ? parsed.generatedAt : new Date().toISOString(),
       metadata: {
-        source: "gemini",
+        source: "openrouter",
       },
     };
   } catch {
@@ -170,7 +170,7 @@ export async function generateStudyPackageWithMetadata(
   text: string
 ): Promise<{
   studyPackage: StudyPackage;
-  source: "gemini" | "fallback";
+  source: "openrouter" | "fallback";
   errorMessage?: string;
   failureState?: GenerationFailureStatus;
 }> {
@@ -210,11 +210,11 @@ ${safeText}`;
     if (parsed) {
       return {
         studyPackage: parsed,
-        source: "gemini",
+        source: "openrouter",
       };
     }
 
-    const failure = classifyAiError("Gemini returned an invalid payload.");
+    const failure = classifyAiError("OpenRouter returned an invalid payload.");
 
     return {
       studyPackage: buildFallbackStudyPackage(safeText, {

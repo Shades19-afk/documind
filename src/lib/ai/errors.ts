@@ -41,7 +41,7 @@ function isInvalidResponse(message: string) {
 }
 
 function isConfigurationFailure(message: string) {
-  return /api key|not configured|missing.*key|GEMINI_API_KEY/i.test(message);
+  return /api key|not configured|missing.*key|OPENROUTER_API_KEY|404|model.*not found|model.*no longer available|model.*is not supported/i.test(message);
 }
 
 export function classifyAiError(error: unknown): AiFailure {

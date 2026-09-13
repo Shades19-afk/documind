@@ -44,7 +44,7 @@ export interface DatabaseSummary {
   important_topics: string[];
   generated_at: string;
   metadata: {
-    source: "gemini" | "fallback";
+    source: "openrouter" | "fallback";
     errorMessage?: string;
     failureState?: GenerationStatus;
   } | null;
