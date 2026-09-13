@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { AuthForm } from "@/components/auth/auth-form";
+import { Card, CardContent } from "@/components/ui/card";
 import { useAuth } from "@/lib/auth/context";
 
 export default function SignupPage() {
@@ -11,12 +12,13 @@ export default function SignupPage() {
   const { user, loading, signUp } = useAuth();
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [confirmationEmail, setConfirmationEmail] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!loading && user) {
+    if (!loading && user && !confirmationEmail) {
       router.replace("/dashboard");
     }
-  }, [loading, router, user]);
+  }, [confirmationEmail, loading, router, user]);
 
   if (loading) {
     return (
@@ -29,18 +31,42 @@ export default function SignupPage() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4 py-10 text-foreground">
       <div className="w-full max-w-md">
-        <AuthForm
-          mode="signup"
-          errorMessage={errorMessage}
-          isSubmitting={isSubmitting}
-          onSubmit={async (email, password, displayName) => {
-            setIsSubmitting(true);
-            setErrorMessage(null);
+        {confirmationEmail ? (
+          <Card className="border-border bg-card">
+            <CardContent className="p-6 sm:p-8">
+              <div className="space-y-2">
+                <p className="text-sm font-medium text-accent">DocuMind</p>
+                <h1 className="font-serif text-2xl font-semibold text-foreground">
+                  Check your inbox
+                </h1>
+                <p className="text-sm leading-6 text-muted-foreground">
+                  We&apos;ve sent a verification link to{" "}
+                  <span className="font-medium text-foreground">{confirmationEmail}</span>.
+                  Click it to activate your account, then come back and sign in.
+                </p>
+              </div>
 
-            try {
-              await signUp(email, password, displayName);
-              router.replace("/dashboard");
-            } catch (error: any) {
+              <Link
+                href="/auth/login"
+                className="mt-6 block w-full rounded-xl bg-accent px-4 py-2 text-center text-sm font-medium text-accent-foreground transition hover:bg-accent/90"
+              >
+                Back to sign in
+              </Link>
+            </CardContent>
+          </Card>
+        ) : (
+          <AuthForm
+            mode="signup"
+            errorMessage={errorMessage}
+            isSubmitting={isSubmitting}
+            onSubmit={async (email, password, displayName) => {
+              setIsSubmitting(true);
+              setErrorMessage(null);
+
+              try {
+                await signUp(email, password, displayName);
+                setConfirmationEmail(email);
+              } catch (error: any) {
                 try {
                   // preserve raw error for debugging
                   // eslint-disable-next-line no-console
@@ -65,11 +91,12 @@ export default function SignupPage() {
                   const message = error instanceof Error ? error.message : 'Unable to create account.';
                   setErrorMessage(message);
                 }
-            } finally {
-              setIsSubmitting(false);
-            }
-          }}
-        />
+              } finally {
+                setIsSubmitting(false);
+              }
+            }}
+          />
+        )}
         <div className="mt-4 text-center text-sm text-muted-foreground">
           <Link href="/" className="text-accent transition hover:text-accent/80">
             Back to home

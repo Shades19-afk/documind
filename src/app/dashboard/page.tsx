@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import {
   ArrowRight,
+  CircleAlert,
   CheckCircle2,
   FolderOpen,
   Globe,
@@ -432,6 +433,8 @@ export default function DashboardPage() {
                           <div className="flex items-center gap-2 text-sm">
                             {upload.status === "completed" ? (
                               <CheckCircle2 className="h-4 w-4 text-chart-2" />
+                            ) : upload.status === "failed" ? (
+                              <CircleAlert className="h-4 w-4 text-destructive" />
                             ) : (
                               <Loader2 className="h-4 w-4 animate-spin text-accent" />
                             )}
@@ -440,7 +443,9 @@ export default function DashboardPage() {
                         </div>
                         <div className="mt-3 h-2 overflow-hidden rounded-full bg-secondary">
                           <div
-                            className="h-full rounded-full bg-accent"
+                            className={`h-full rounded-full ${
+                              upload.status === "failed" ? "bg-destructive" : "bg-accent"
+                            }`}
                             style={{ width: `${upload.progress}%` }}
                           />
                         </div>

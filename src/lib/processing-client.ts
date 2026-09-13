@@ -32,7 +32,7 @@ export interface StudyPackage {
   importantTopics: string[];
   generatedAt: string;
   metadata?: {
-    source: "gemini" | "fallback";
+    source: "openrouter" | "fallback";
     errorMessage?: string;
     failureState?: GenerationStatus;
   };

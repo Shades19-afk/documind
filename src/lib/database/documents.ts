@@ -563,9 +563,13 @@ export async function processDocumentText(documentId: string, extractedText: str
     if (!isMissingDocumentTableError(error)) {
       const message = error instanceof Error ? error.message : "Processing failed.";
 
-      console.error("[DocuMind generation] error in database flow", {
+      console.error("[DocuMind generation] failed", {
         documentId,
         message,
+        debugMessage:
+          error instanceof Error && "failure" in error
+            ? (error as Error & { failure?: { debugMessage?: string } }).failure?.debugMessage ?? message
+            : message,
       });
 
       // Attempt to update to failed state

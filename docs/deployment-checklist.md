@@ -2,7 +2,8 @@
 
 ## Required environment
 
-- `GEMINI_API_KEY`
+- `OPENROUTER_API_KEY`
+- `OPENROUTER_MODEL` (optional)
 - `NEXT_PUBLIC_BASE_URL`
 
 ## Recommended hosting

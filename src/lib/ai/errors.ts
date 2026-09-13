@@ -41,11 +41,12 @@ function isInvalidResponse(message: string) {
 }
 
 function isConfigurationFailure(message: string) {
-  return /api key|not configured|missing.*key|GEMINI_API_KEY/i.test(message);
+  return /api key|not configured|missing.*key|OPENROUTER_API_KEY|404|model.*not found|model.*no longer available|model.*is not supported/i.test(message);
 }
 
 export function classifyAiError(error: unknown): AiFailure {
-  const message = extractMessage(error).toLowerCase();
+  const rawMessage = extractMessage(error);
+  const message = rawMessage.toLowerCase();
 
   if (isConfigurationFailure(message)) {
     return {
@@ -53,7 +54,7 @@ export function classifyAiError(error: unknown): AiFailure {
       status: "generation_failed",
       retryable: false,
       userMessage: "AI generation temporarily unavailable",
-      debugMessage: `AI configuration error: ${extractMessage(error)}`,
+      debugMessage: `AI configuration error: ${rawMessage}`,
     };
   }
 
@@ -64,7 +65,7 @@ export function classifyAiError(error: unknown): AiFailure {
       status: "quota_exceeded",
       retryable: true,
       userMessage: "Quota exhausted, retry later",
-      debugMessage: `AI quota error: ${extractMessage(error)}`,
+      debugMessage: `AI quota error: ${rawMessage}`,
     };
   }
 
@@ -74,7 +75,7 @@ export function classifyAiError(error: unknown): AiFailure {
       status: "retry_pending",
       retryable: true,
       userMessage: "AI generation temporarily unavailable",
-      debugMessage: `AI rate limit error: ${extractMessage(error)}`,
+      debugMessage: `AI rate limit error: ${rawMessage}`,
     };
   }
 
@@ -84,7 +85,7 @@ export function classifyAiError(error: unknown): AiFailure {
       status: "retry_pending",
       retryable: true,
       userMessage: "AI generation temporarily unavailable",
-      debugMessage: `Temporary AI service error: ${extractMessage(error)}`,
+      debugMessage: `Temporary AI service error: ${rawMessage}`,
     };
   }
 
@@ -94,7 +95,7 @@ export function classifyAiError(error: unknown): AiFailure {
       status: "generation_failed",
       retryable: true,
       userMessage: "Generation failed, please retry",
-      debugMessage: `Invalid AI response: ${extractMessage(error)}`,
+      debugMessage: `Invalid AI response: ${rawMessage}`,
     };
   }
 
@@ -103,7 +104,7 @@ export function classifyAiError(error: unknown): AiFailure {
     status: "generation_failed",
     retryable: true,
     userMessage: "Generation failed, please retry",
-    debugMessage: `Unexpected AI failure: ${extractMessage(error)}`,
+    debugMessage: `Unexpected AI failure: ${rawMessage}`,
   };
 }
 

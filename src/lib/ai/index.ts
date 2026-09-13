@@ -1,3 +1,3 @@
 export * from "./types";
-export * from "./gemini";
+export * from "./openrouter";
 export * from "./summary-service";

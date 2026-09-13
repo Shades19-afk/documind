@@ -1,14 +1,25 @@
 import path from "path";
 import { pathToFileURL } from "url";
-import * as pdfParse from "pdf-parse";
+import DOMMatrixPolyfill from "@thednp/dommatrix";
 import { ProcessingError } from "./errors";
+
+if (typeof globalThis.DOMMatrix === "undefined") {
+  Object.defineProperty(globalThis, "DOMMatrix", {
+    configurable: true,
+    value: DOMMatrixPolyfill,
+    writable: true,
+  });
+}
 
 const pdfWorkerUrl = pathToFileURL(
   path.resolve(process.cwd(), "node_modules/pdf-parse/dist/worker/pdf.worker.mjs")
 ).href;
 const EXTRACTION_TIMEOUT_MS = 15000;
 
-pdfParse.PDFParse.setWorker(pdfWorkerUrl);
+const pdfParsePromise = import("pdf-parse").then((pdfParse) => {
+  pdfParse.PDFParse.setWorker(pdfWorkerUrl);
+  return pdfParse;
+});
 
 export interface PdfExtractionResult {
   text: string;
@@ -41,7 +52,8 @@ export async function extractTextFromPdf(buffer: Buffer): Promise<PdfExtractionR
   });
 
   try {
-    const parser = new pdfParse.PDFParse({ data: buffer });
+    const { PDFParse } = await pdfParsePromise;
+    const parser = new PDFParse({ data: buffer });
 
     console.log("[DocuMind extraction] invoking pdf-parse", {
       bufferSize,

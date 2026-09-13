@@ -1,4 +1,4 @@
-import { generateText, clampText } from "./gemini";
+import { generateText, clampText } from "./openrouter";
 import { classifyAiError, getFriendlyGenerationMessage, type GenerationFailureStatus } from "./errors";
 import { Flashcard, StudyPackage, StudySectionSummary, SummaryPayload } from "./types";
 
@@ -94,14 +94,36 @@ function buildFallbackStudyPackage(
 
 function parseStructuredResponse(text: string): StudyPackage | null {
   const cleaned = text.trim();
+  console.error("[DocuMind AI] raw response:", text);
+ const unfenced = cleaned
+  .replace(/^```(?:json)?\s*/i, "")
+  .replace(/\s*```$/, "")
+  .trim();
+  
+  let parsed: Record<string, unknown> | null = null;
 
   try {
-    const parsed = JSON.parse(cleaned);
+    parsed = JSON.parse(unfenced);
+  } catch {
+    const firstBrace = unfenced.indexOf("{");
+    const lastBrace = unfenced.lastIndexOf("}");
 
-    if (!parsed || typeof parsed !== "object") {
+    if (firstBrace === -1 || lastBrace <= firstBrace) {
       return null;
     }
 
+    try {
+      parsed = JSON.parse(unfenced.slice(firstBrace, lastBrace + 1));
+    } catch {
+      return null;
+    }
+  }
+
+  if (!parsed || typeof parsed !== "object") {
+    return null;
+  }
+
+  try {
     const flashcards = Array.isArray(parsed.flashcards)
       ? parsed.flashcards
           .filter((item: unknown): item is Flashcard => {
@@ -136,7 +158,7 @@ function parseStructuredResponse(text: string): StudyPackage | null {
       importantTopics: normalizeStringArray(parsed.importantTopics).slice(0, 6),
       generatedAt: typeof parsed.generatedAt === "string" ? parsed.generatedAt : new Date().toISOString(),
       metadata: {
-        source: "gemini",
+        source: "openrouter",
       },
     };
   } catch {
@@ -148,7 +170,7 @@ export async function generateStudyPackageWithMetadata(
   text: string
 ): Promise<{
   studyPackage: StudyPackage;
-  source: "gemini" | "fallback";
+  source: "openrouter" | "fallback";
   errorMessage?: string;
   failureState?: GenerationFailureStatus;
 }> {
@@ -188,11 +210,11 @@ ${safeText}`;
     if (parsed) {
       return {
         studyPackage: parsed,
-        source: "gemini",
+        source: "openrouter",
       };
     }
 
-    const failure = classifyAiError("Gemini returned an invalid payload.");
+    const failure = classifyAiError("OpenRouter returned an invalid payload.");
 
     return {
       studyPackage: buildFallbackStudyPackage(safeText, {
